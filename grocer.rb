@@ -72,25 +72,16 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
-# consolidated_cart = consolidate_cart(cart[:price])#this consolidates cart 
-# couponed_cart = apply_coupons(consolidated_cart, coupons) #take consoldated cart AND APPLYS coupons
-# final_cart = apply_clearance(couponed_cart) #takes couponedcart  and applies clearnace 
+consolidated_cart = consolidate_cart(cart[:price])#this consolidates cart 
+couponed_cart = apply_coupons(consolidated_cart, coupons) #take consoldated cart AND APPLYS coupons
+final_cart = apply_clearance(couponed_cart) #takes couponedcart  and applies clearnace 
 
-# total = 0 
-# counter = 0 
-# while counter < final_cart.length 
-#   total += final_cart[counter][:price] = final_cart[counter][:count] #add to total cart the price of item and count 
-#   counter += 1 
-# end 
-
- consol_cart = consolidate_cart(cart)
-  cart_with_coupons_applied = apply_coupons(consol_cart, coupons)
-  cart_with_discounts_applied = apply_clearance(cart_with_coupons_applied)
-
-  total = 0.0
-  cart_with_discounts_applied.keys.each do |item|
-    total += cart_with_discounts_applied[item][:price]*cart_with_discounts_applied[item][:count]
-  end
+total = 0 
+counter = 0 
+while counter < final_cart.length 
+  total += final_cart[counter][:price] = final_cart[counter][:count] #add to total cart the price of item and count 
+  counter += 1 
+end 
 if total > 100 
   total -= (total * 0.10)
 end
