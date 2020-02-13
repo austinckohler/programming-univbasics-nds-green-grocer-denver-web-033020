@@ -62,8 +62,9 @@ end
 
 def apply_clearance(cart)
  counter = 0 
- cart_item_with_clearance = []
- while counter < 
+ cart_with_clearance = []
+ while counter < cart.length
+ 
 end
 
 def checkout(cart, coupons)
