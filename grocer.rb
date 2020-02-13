@@ -129,3 +129,4 @@ def consolidate_cart(cart)
   end
   updated_cart
 end
+
