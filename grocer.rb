@@ -9,22 +9,6 @@ end
 end
 
 def consolidate_cart(cart)
-   consolidated = {}
-  cart.each do |contents|
-    contents.each do |item, info|
-    if consolidated.include?(item)
-      consolidated[item][:count] += 1
-    else
-      consolidated[item] = {
-          :price => info[:price],
-          :clearance => info[:clearance],
-          :count => 1
-      }
-    end
-  end
-end
-consolidated
-end 
 #   new_cart = [] # (items in the new cart)
 #   counter = 0 
 #   while counter < cart.length 
