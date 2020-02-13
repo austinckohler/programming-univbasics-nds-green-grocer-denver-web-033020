@@ -9,25 +9,41 @@ end
 end
 
 def consolidate_cart(cart)
-  new_cart = [] # (items in the new cart)
-  counter = 0 
-  while counter < cart.length 
-  new_cart_item = find_item_by_name_in_collection(cart[counter][:item], new_cart)
-  if new_cart_item #(if new cart item is not NIL the new cart items count should be increased by 1) 
-    new_cart_item[:count] += 1
-  else 
-    new_cart_item = {
-      :item => cart[counter][:item],
-      :price => cart[counter][:price],
-      :clearance => cart[counter][:clearance],
-      :count => 1 
-    }
-    new_cart << new_cart_item
-  end 
-  counter += 1
+   consolidated = {}
+  cart.each do |contents|
+    contents.each do |item, info|
+    if consolidated.include?(item)
+      consolidated[item][:count] += 1
+    else
+      consolidated[item] = {
+          :price => info[:price],
+          :clearance => info[:clearance],
+          :count => 1
+      }
+    end
+  end
 end
-new_cart
-end
+consolidated
+end 
+#   new_cart = [] # (items in the new cart)
+#   counter = 0 
+#   while counter < cart.length 
+#   new_cart_item = find_item_by_name_in_collection(cart[counter][:item], new_cart)
+#   if new_cart_item #(if new cart item is not NIL the new cart items count should be increased by 1) 
+#     new_cart_item[:count] += 1
+#   else 
+#     new_cart_item = {
+#       :item => cart[counter][:item],
+#       :price => cart[counter][:price],
+#       :clearance => cart[counter][:clearance],
+#       :count => 1 
+#     }
+#     new_cart << new_cart_item
+#   end 
+#   counter += 1
+# end
+# new_cart
+# end
 
 # need to return a [{:item => "", :count => Integer}]
 # item {:item => "", :count => Integer}
