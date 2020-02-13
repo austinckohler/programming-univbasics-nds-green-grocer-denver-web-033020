@@ -99,3 +99,5 @@ def increment_count_of_item (cart, item_name)
   end
   cart
 end
+
+def find_item_by_name_in_collection(name, collection)
