@@ -142,4 +142,5 @@ count = 0
   cart
 end
 
+def checkout(cart, coupons)
 
