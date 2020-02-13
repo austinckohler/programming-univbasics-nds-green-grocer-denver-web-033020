@@ -130,3 +130,5 @@ def consolidate_cart(cart)
   updated_cart
 end
 
+def apply_coupons(cart, coupons)
+  
