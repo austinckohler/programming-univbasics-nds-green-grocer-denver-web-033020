@@ -89,7 +89,17 @@ end
 # end 
 
 def consolidate_cart(cart)
- 
+   consCart = {}
+  cart.map { |groc|
+    grocItem = groc.keys[0]
+    if consCart[grocItem]
+      consCart[grocItem][:count] += 1
+    else
+      consCart[grocItem] = groc[grocItem]
+      consCart[grocItem][:count] = 1
+    end
+  }
+  consCart
 
 end
 
