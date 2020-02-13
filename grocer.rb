@@ -64,7 +64,9 @@ def apply_clearance(cart)
  counter = 0 
  cart_with_clearance = []
  while counter < cart.length
- 
+ if cart[counter][:clearance] == true
+   cart[counter][:price] -= .2% 
+ else cart[counter][:price]
 end
 
 def checkout(cart, coupons)
