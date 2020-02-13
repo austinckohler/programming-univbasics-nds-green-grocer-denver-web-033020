@@ -163,3 +163,5 @@ def apply_clearance(cart)
   end
   ready_for_checkout
 end
+
+def checkout(cart, coupons)
